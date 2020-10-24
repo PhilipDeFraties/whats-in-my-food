@@ -1,16 +1,18 @@
 <h1>Search Results</h1>
 
-results count: <%= @items[:foods].count %>
+results count: <%= @foods.count %>
 
 <div class='foods'>
-  <% @items[:foods][0..9].each do |food| %>
-  <section class='food'>
+  <% food_id = 0 %>
+  <% @foods[0..9].each do |food| %>
+    <% food_id += 1 %>
+    <div class='food' id="food-<%= food_id %>">
     <ul>
-      <li>GTIN/UPC code: <%= food[:gtinUpc] %></li>
-      <li>description: <%= food[:description] %></li>
-      <li>Brand Owner: <%= food[:brandOwner] %></li>
-      <li>ingredients: <%= food[:ingredients] %></li>
+      <li>GTIN/UPC code: <%= food.gtinupc %></li>
+      <li>description: <%= food.description %></li>
+      <li>Brand Owner: <%= food.brand_owner %></li>
+      <li>ingredients: <%= food.ingredients %></li>
     </ul>
-  </section>
+  </div>
   <% end %>
 </div>
